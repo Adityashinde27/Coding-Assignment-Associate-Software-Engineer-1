@@ -1,0 +1,7 @@
+function sortArrayDescending(arr) {
+    return arr.sort((a, b) => b - a);
+}
+
+const inputArray = [8,7,9,5,2];
+const sortedArray = sortArrayDescending(inputArray);
+console.log(sortedArray);

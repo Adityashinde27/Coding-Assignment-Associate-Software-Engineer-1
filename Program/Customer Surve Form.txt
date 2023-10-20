@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .sign-in-form {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid #ccc; /* Border style */
+            border-radius: 5px; /* Rounded corners */
+            background-color: white;
+            color: black;
+        }
+            .sign-in-form button {
+                width: 20%;
+                padding: 8px;
+                margin: 10px 0;
+            }
+
+
+        .submit {
+            text-align: center;
+            background-color: skyblue;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor:pointer;
+            border:none;
+        }
+        .reset {
+            text-align: center;
+            background-color: skyblue;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+        }
+
+
+        #Customer {
+            text-align: center;
+        }
+
+        .Blue {
+            background-color: #11b4f0;
+            color: white;
+        }
+        #last {
+            text-align:center;
+           
+
+        }
+    </style>
+</head>
+<body class="Blue">
+    <h1 id="Customer"> Customer Survey For</h1>
+    <div class="sign-in-form">
+        <form id="signInForm">
+            <label for=”name” id="fname" required>Name</label>&nbsp;
+            <label for=”Email” id="email" required>Email</label><br />
+
+            <input type="text" id="name" />&nbsp;
+            <input type="email" id=”lname” />
+            <br />
+            <br />
+            <label for="yes_no_radio">In this first time you are using our products & service?</label>
+            <br />
+            <input type="radio" name="yes_no" checked>Yes
+            <input type="radio" name="yes_no">No
+            <br />
+            <br />
+            <label for="yes_no_radio1">Would you suggestion you friends and colleaque?</label>
+            <br />
+            <input type="radio" name="yes_no1" checked>Yes
+            <input type="radio" name="yes_no1">No
+            <br />
+            <br />
+            <label for="yes_no_radio2">How satisfied are you with our company overall</label>
+            <br />
+            <input type="radio" name="yes_no2" checked>Yes
+            <input type="radio" name="yes_no2">No
+            <br />
+            <br />
+
+            <label for="w3review">Do You have Suggestion to improve our service?</label>
+            <br />
+            <textarea id="w3review" name="w3review" rows="4" cols="50">
+        </textarea>
+            <br />
+
+            <button type="button" class="submit" id="submitButton" ">Submit</button>
+            <button type="button" class="reset" id="resetButton">Reset</button>
+        </form>
+    </div>
+    <br /> <br />
+    <div id="last">
+    <label >@2018 Customer surve form. All Right Reserved Design by <a href="https://www.w3layout.com/">@w3layout</a></label>
+
+    </div>
+    <script>
+        const signInForm = document.getElementById("signInForm");
+        const submitButton = document.getElementById("submitButton");
+        const resetButton = document.getElementById("resetButton");
+
+        submitButton.addEventListener("click", function () {
+            if (signInForm.checkValidity()) {
+
+                const formData = new FormData(signInForm);
+                let popupContent = "<h2>Customer Survey For</h2>";
+                formData.forEach((value, key) => {
+                    popupContent += `<p><strong>${key}:</strong> ${value}</p>`;
+                });
+                showPopup(popupContent);
+            }
+        });
+
+        resetButton.addEventListener("click", function () {
+            signInForm.reset();
+        });
+
+        function showPopup(content) {
+            const popup = document.createElement("div");
+            popup.id = "popup";
+            popup.innerHTML = content;
+            document.body.appendChild(popup);
+
+
+            popup.addEventListener("click", function () {
+                document.body.removeChild(popup);
+                signInForm.reset();
+            });
+        }
+
+    </script>
+
+
+
+</body>
+
+      
+
+</html>
+
+
+
+
+
+
+
+
+
+
+   
+
